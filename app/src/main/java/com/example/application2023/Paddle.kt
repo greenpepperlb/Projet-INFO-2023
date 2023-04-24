@@ -17,6 +17,25 @@ class Paddle(private val paddleWidth: Int, private val paddleHeight: Int, privat
         y = dHeight - (paddleHeight * 2) - 300
     }
 
+    fun getX(): Int {
+        return x
+    }
+
+    fun setX(a: Int) {
+        x=a
+    }
+
+    fun getY(): Int {
+        return y
+    }
+
+    fun setY(a: Int) {
+        y=a
+    }
+    fun getPaddleWidth(): Int {
+        return paddleWidth
+    }
+
     fun draw(canvas: Canvas) {
         val paint= Paint()
         paint.color = Color.parseColor("#00FF00")
