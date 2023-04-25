@@ -57,10 +57,10 @@ class Ball(private val dWidth: Int, private val dHeight: Int, private val radius
         x+=xVel
         y+=yVel
         if (x - radius <0 || x + radius > dWidth){
-            reverseVelocityX()
+            reverseVelocity(1)
         }
         if (y - radius < 0){
-            reverseVelocityY()
+            reverseVelocity(2)
         }
         if(y + radius > dHeight){
             setY(dHeight/2)
@@ -74,10 +74,13 @@ class Ball(private val dWidth: Int, private val dHeight: Int, private val radius
         return Rect(x-radius,y-radius, x+radius, y+radius)
     }
 
-    fun reverseVelocityY(){
-        yVel *= -1
-    }
-    fun reverseVelocityX(){
-        xVel *= -1
+    fun reverseVelocity(i: Int){
+        if (i==2){
+            yVel *= -1
+        }
+        else{
+            xVel *= -1
+        }
+
     }
 }

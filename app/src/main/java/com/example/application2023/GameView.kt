@@ -65,12 +65,12 @@ class GameView(context: Context, attrs: AttributeSet?, dWidth: Int, dHeight: Int
         ball.setYVel(-(speed*kotlin.math.sin(Math.toRadians(newAngle))).toInt())
         ball.setXVel(pos*(speed*kotlin.math.cos(Math.toRadians(newAngle))).toInt()) */
         val paddleCenter:Int = paddle.getX() + paddle.getPaddleWidth()/2
-        ball.reverseVelocityY()
+        ball.reverseVelocity(2)
         if (paddleCenter<ball.getX()&&ball.getXVel()<0){
-            ball.reverseVelocityX()
+            ball.reverseVelocity(1)
         }
         else if (paddleCenter>=ball.getX()&&ball.getXVel()>0){
-            ball.reverseVelocityX()
+            ball.reverseVelocity(1)
         }
 
     }
