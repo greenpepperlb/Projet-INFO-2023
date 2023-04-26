@@ -6,9 +6,9 @@ import android.graphics.Paint
 import android.graphics.Rect
 import kotlin.random.Random
 
-class Ball(private val dWidth: Int, private val dHeight: Int, private val radius:Int, private val color:Int) {
-    private var x:Int = Random.nextInt(dWidth/2 -10,dWidth/2 + 10)
-    private var y:Int = dHeight/2
+class Ball(private val dWidth: Int, private val dHeight: Int, private val radius:Int, private val color:Int): GameObject(Random.nextInt(dWidth/2 -10,dWidth/2 + 10),dHeight/2) {
+    private var x:Int = getX()
+    private var y:Int = getY()
     private var xVel: Int = Random.nextInt(7,13)
     private var yVel: Int = Random.nextInt(7,13)
 
@@ -16,21 +16,6 @@ class Ball(private val dWidth: Int, private val dHeight: Int, private val radius
         return radius
     }
 
-    fun getX(): Int {
-        return x
-    }
-
-    fun setX(a: Int) {
-        x=a
-    }
-
-    fun getY(): Int {
-        return y
-    }
-
-    fun setY(a: Int) {
-        y=a
-    }
 
     fun getXVel(): Int {
         return xVel
@@ -65,6 +50,8 @@ class Ball(private val dWidth: Int, private val dHeight: Int, private val radius
         if(y + radius > dHeight){
             setY(dHeight/2)
             setX(Random.nextInt(dWidth/2 -10,dWidth/2 + 10))
+            x = getX()
+            y= getY()
             setXVel(Random.nextInt(7,13))
             setYVel(Random.nextInt(7,13))
         }

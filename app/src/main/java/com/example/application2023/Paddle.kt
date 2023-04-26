@@ -7,31 +7,10 @@ import android.graphics.Rect
 import android.view.MotionEvent
 
 
-class Paddle(private val paddleWidth: Int, private val paddleHeight: Int, private val dWidth: Int, private val dHeight: Int) {
-    private var x: Int = 0
-    private var y: Int = 0
+class Paddle(private var paddleWidth: Int, private val paddleHeight: Int, private val dWidth: Int, private val dHeight: Int): GameObject((dWidth - paddleWidth) / 2, dHeight - (paddleHeight * 2) - 300) {
+    private var x: Int = getX()
+    private var y: Int = getY()
 
-
-    init{
-        x = (dWidth - paddleWidth) / 2
-        y = dHeight - (paddleHeight * 2) - 300
-    }
-
-    fun getX(): Int {
-        return x
-    }
-
-    fun setX(a: Int) {
-        x=a
-    }
-
-    fun getY(): Int {
-        return y
-    }
-
-    fun setY(a: Int) {
-        y=a
-    }
     fun getPaddleWidth(): Int {
         return paddleWidth
     }
