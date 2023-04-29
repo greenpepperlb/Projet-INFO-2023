@@ -17,4 +17,5 @@ open class GameObject(private var x: Int,private var y: Int) {
     fun setY(a: Int) {
         y=a
     }
+
 }
